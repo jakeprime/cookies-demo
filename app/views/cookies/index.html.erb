@@ -1,9 +1,17 @@
-<ul>
-  <% @cookies.each do |cookie| %>
-    <li>
-      <strong><%= cookie[0] %></strong>
-      <br>
-      <%= cookie[1] %>
-    </li>
-  <% end %>
-</ul>
+<div class='card'>
+  <div class='card-header'>
+    <h2>Current Cookies</h2>
+  </div>
+  <div class='card-body'>
+    <ul class="list-group list-group-flush">
+      <% @cookies.each do |cookie| %>
+        <li class='list-group-item'>
+          <strong><%= cookie[0] %></strong>
+          <br>
+          <%= cookie[1] %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
