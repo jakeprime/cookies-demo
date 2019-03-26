@@ -1,17 +1,42 @@
 <div class='card'>
   <div class='card-header'>
-    <h2>Current Cookies</h2>
+    <h2>Cookies Received in Request</h2>
+    <ul class='nav nav-tabs card-header-tabs'>
+      <li class='nav-item'>
+        <a class='nav-link active' id='request-raw-tab' data-toggle='tab' href='#request-raw'>Raw</a>
+      </li>
+      <li class='nav-item'>
+        <a class='nav-link' id='request-parsed-tab' data-toggle='tab' href='#request-parsed'>Parsed</a>
+      </li>
+    </ul>
   </div>
   <div class='card-body'>
-    <ul class="list-group list-group-flush">
-      <% @cookies.each do |cookie| %>
-        <li class='list-group-item'>
-          <strong><%= cookie[0] %></strong>
-          <br>
-          <%= cookie[1] %>
-        </li>
-      <% end %>
-    </ul>
+    <div class='tab-content'>
+      <div class='tab-pane fade show active' id='request-raw'>
+        <samp><%= @raw_cookies %></samp>
+      </div>
+      <div class='tab-pane fade' id='request-parsed'>
+        <ul class="list-group list-group-flush">
+          <% @cookies.each do |cookie| %>
+            <li class='list-group-item'>
+              <strong><%= cookie[0] %></strong>
+              <br>
+              <%= cookie[1] %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
   </div>
 </div>
 
+<br>
+
+<div class='card'>
+  <div class='card-header'>
+    <h2>Set-Cookie headers</h2>
+  </div>
+  <div class='card-body'>
+    <%= @cookie_headers %>
+  </div>
+</div>
