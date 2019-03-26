@@ -1,6 +1,6 @@
 <div class='card'>
   <div class='card-header'>
-    <h2>Cookies Received in Request</h2>
+    <h2>Cookies received in request</h2>
     <ul class='nav nav-tabs card-header-tabs'>
       <li class='nav-item'>
         <a class='nav-link active' id='request-raw-tab' data-toggle='tab' href='#request-raw'>Raw</a>
@@ -37,6 +37,33 @@
     <h2>Set-Cookie headers</h2>
   </div>
   <div class='card-body'>
-    <%= @cookie_headers %>
+    <ul class="list-group list-group-flush">
+      <% @cookie_headers.each do |cookie| %>
+        <li class='list-group-item'>
+          <samp>
+            <strong>Set-Cookie: </strong>
+            <%= cookie %>
+          </samp>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<br>
+
+<div class='card'>
+  <div class='card-header'>
+    <h2>Write new cookies</h2>
+  </div>
+  <div class='card-body'>
+    <%= form_tag do %>
+      <div class='form-group'>
+        <textarea class='form-control' id='cookies' name='cookies' rows='4'></textarea>
+      </div>
+      <div class='form-group'>
+        <button type='submit' class='btn btn-primary'>Submit</button>
+      </div>
+    <% end %>
   </div>
 </div>
