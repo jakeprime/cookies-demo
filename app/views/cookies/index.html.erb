@@ -3,19 +3,19 @@
     <h2>Cookies received in request</h2>
     <ul class='nav nav-tabs card-header-tabs'>
       <li class='nav-item'>
-        <a class='nav-link active' id='request-raw-tab' data-toggle='tab' href='#request-raw'>Raw</a>
+        <a class='nav-link active' id='request-parsed-tab' data-toggle='tab' href='#request-parsed'>Parsed</a>
       </li>
       <li class='nav-item'>
-        <a class='nav-link' id='request-parsed-tab' data-toggle='tab' href='#request-parsed'>Parsed</a>
+        <a class='nav-link' id='request-raw-tab' data-toggle='tab' href='#request-raw'>Raw</a>
       </li>
     </ul>
   </div>
   <div class='card-body'>
     <div class='tab-content'>
-      <div class='tab-pane fade show active' id='request-raw'>
+      <div class='tab-pane fade' id='request-raw'>
         <samp><%= @raw_cookies %></samp>
       </div>
-      <div class='tab-pane fade' id='request-parsed'>
+      <div class='tab-pane fade show active' id='request-parsed'>
         <ul class="list-group list-group-flush">
           <% @cookies.each do |cookie| %>
             <li class='list-group-item'>
